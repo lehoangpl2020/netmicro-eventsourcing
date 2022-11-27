@@ -1,6 +1,14 @@
 version: '3.4'
 
 services:
+  post.mongodb:
+    container_name: post.mongodb
+    restart: always
+    ports:
+       - "27017:27017"
+    volumes:
+       - mongo_data:/data/db
+
   post.api:
     container_name: post.api
     environment:
