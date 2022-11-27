@@ -3,6 +3,9 @@ version: '3.4'
 services:
   post.mongodb:
     image: mongo
+  
+  post.sqldb:
+    image: mcr.microsoft.com/mssql/server:2017-latest
 
   zookeeper:
     container_name: zookeeper
@@ -30,12 +33,6 @@ services:
       - KAFKA_ADVERTISED_LISTENERS=PLAINTEXT://localhost:9092
     depends_on:
       - zookeeper
-
-  post.api:
-    image: ${DOCKER_REGISTRY-}postapi
-    build:
-      context: .
-      dockerfile: Services/Post.API/Dockerfile
 
 volumes:
   mongo_data:
