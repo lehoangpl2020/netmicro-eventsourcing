@@ -1,0 +1,9 @@
+version: '3.4'
+
+services:
+  post.api:
+    container_name: post.api
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+    ports:
+      - "80"
