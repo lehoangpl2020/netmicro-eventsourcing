@@ -2,14 +2,15 @@
 
 Overview
 ![image](https://user-images.githubusercontent.com/115392816/204140288-13ab2aaf-87e4-4dcc-ab30-4dc29275d6c2.png)
+# Run docker up
+docker-compose up -d
 
 # Mongo db
-Run in Docker:
-docker run -it -d --name mongo-container \
--p 27017:27017 --network mydockernetwork \
---restart always \
--v mongodb_data_container:/data/db \
-mongo:latest
+docker pull mongo
+
+docker run -it -d --name mongo-container -p 27017:27017 --restart always -v mongodb_data_container:/data/db mongo:latest
+
+docker run -it -d --name mongo-container -p 27017:27017 --network mydockernetwork --restart always -v mongodb_data_container:/data/db mongo:latest
 
 Download Client Tools – Robo 3T:
 https://robomongo.org/download
