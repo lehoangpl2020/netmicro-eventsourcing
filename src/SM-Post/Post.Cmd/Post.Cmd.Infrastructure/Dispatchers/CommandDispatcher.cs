@@ -28,10 +28,7 @@ namespace Post.Cmd.Infrastructure.Dispatchers
             else
             {
                 throw new ArgumentNullException(nameof(handler), "No command handler was registered!");
-
             }
-
-
         }
     }
 }
