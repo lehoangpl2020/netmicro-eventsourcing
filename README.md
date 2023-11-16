@@ -1,7 +1,9 @@
 # netmicro-eventsourcing
 
 Overview
-![image](https://user-images.githubusercontent.com/115392816/204140288-13ab2aaf-87e4-4dcc-ab30-4dc29275d6c2.png)
+![image](https://github.com/lehoangpl2020/netmicro-eventsourcing/assets/115392816/18155fb9-de7f-4f22-983b-a154c41174fe)
+
+
 # Run docker up
 docker-compose up -d
 
