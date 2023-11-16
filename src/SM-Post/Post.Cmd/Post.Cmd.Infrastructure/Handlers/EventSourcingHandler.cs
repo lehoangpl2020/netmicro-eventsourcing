@@ -47,6 +47,7 @@ namespace Post.Cmd.Infrastructure.Handlers
                 foreach (var @event in events)
                 {
                     var topic = Environment.GetEnvironmentVariable("KAFKA_TOPIC");
+                    topic ??= "KAFKA_TOPIC";
                     await _eventProducer.ProduceAsync(topic, @event);
                 }
             }
