@@ -1,5 +1,5 @@
 ﻿using CQRS.Core.Commands;
-using CQRS.Core.Infrastructure.Dispatchers;
+using CQRS.Core.Infrastructure;
 
 namespace Post.Cmd.Infrastructure.Dispatchers
 {
@@ -13,15 +13,13 @@ namespace Post.Cmd.Infrastructure.Dispatchers
             {
                 throw new IndexOutOfRangeException("You cannot register the same command handler twice!");
             }
-            else
-            {
-                _handlers.Add(typeof(T), x => handler((T)x));
-            }
+
+            _handlers.Add(typeof(T), x => handler((T)x));
         }
 
         public async Task SendAsync(BaseCommand command)
         {
-            if (_handlers.TryGetValue(command.GetType(), out var handler))
+            if (_handlers.TryGetValue(command.GetType(), out Func<BaseCommand, Task> handler))
             {
                 await handler(command);
             }
